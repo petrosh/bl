@@ -59,9 +59,9 @@
 
     <script id="hackSpotsTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">State</th><th class="tHeader">Country</th><th class="">Elsewhere</th></tr>
+            <tr><th class="tHeader">Informazioni cronologiche</th><th class="tHeader">Indirizzo e-mail da inserire in blacklist</th><th class="tHeader">Note</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{city}}</td><td>{{state}}</td><td>{{country}}</td><td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">G Map</a> <a class="button" href="http://www.yelp.com/search?find_desc={{name}}&find_loc={{city}},{{state}}" target="_blank">Yelp</a></td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td>{{Informazioni cronologiche}}</td><td>{{Indirizzo e-mail da inserire in blacklist}}</td><td>{{Note}}</td></tr>
             {{/rows}}
         </table>
     </script>
@@ -133,24 +133,24 @@
 
             // create geoJSON with coordinates and other
             // useful bits from the original data
-            var optionsJSON = ["Informazioni cronologiche", "Indirizzo e-mail da inserire in blacklist", "Note"]
-            var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
+            //var optionsJSON = ["Informazioni cronologiche", "Indirizzo e-mail da inserire in blacklist", "Note"]
+            //var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
 
             // create map, tilelayer (map background), markers and popups
-            var map = Sheetsee.loadMap("map")
-            Sheetsee.addTileLayer(map, 'examples.map-20v6611k')
-            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>")
+            //var map = Sheetsee.loadMap("map")
+            //Sheetsee.addTileLayer(map, 'examples.map-20v6611k')
+            //var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>")
 
             // find the latest spot with the most important
             // info filled in (to prevent map breaking if
             // someone is currently editing spreadsheet)
-            var theLatestSpot = findLatestCompleteSpot(gData)
-            var latestSpot = Sheetsee.ich.latestSpot({
-                rows: theLatestSpot
-            })
+            //var theLatestSpot = findLatestCompleteSpot(gData)
+            //var latestSpot = Sheetsee.ich.latestSpot({
+            //    rows: theLatestSpot
+            //})
             // set it and pan to it
-            $('#latestSpot').html(latestSpot)
-            map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
+            //$('#latestSpot').html(latestSpot)
+            //map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
             // when someone clicks on a row, highlight it and
             // re-center the map
@@ -165,8 +165,8 @@
                 })
                 $('#latestSpot').css("display", "none")
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
-                var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-                map.setView(selectedCoords, 14)
+                //var selectedCoords = [dataElement[0].lat, dataElement[0].long]
+                //map.setView(selectedCoords, 14)
             })
 
             // so that the first map and info that loads
