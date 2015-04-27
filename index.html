@@ -21,14 +21,14 @@
 <body>
     <div id="wrapper">
         <div class="container">
-            <h1>Blackmail</h1>
+            <h1>Blacklist</h1>
             <div id="theNumberofSpots"></div>
             <ul>
                 <li><a href="http://goo.gl/forms/i62WQdFpM0" target="_blank">Inserisci nuovo indirizzo e-mail</a></li>
                 <li>Oppure filtra la tabella tramite il campo sottostante</li>
             </ul>
             <input id="tableFilter" type="text" placeholder="filtra la tablella..."></input>
-            <span class="clear button">CANCELLA</span>
+            <span class="clear button">Cancella campo</span>
             <span class="noMatches">nessun risultato</span>
             <div id="hackSpotsTable"></div>
         </div>
@@ -36,7 +36,7 @@
 
     <script id="hackSpotsTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Informazioni cronologiche</th><th class="tHeader">Indirizzo e-mail da inserire in blacklist</th><th class="tHeader">Note</th></tr>
+            <tr><th class="tHeader">Cronologia</th><th class="tHeader">Indirizzo</th><th class="tHeader">Note</th></tr>
             {{#rows}}
                 <tr id="{{rowNumber}}" class="spotRow"><td>{{informazionicronologiche}}</td><td>{{indirizzoe-maildainserireinblacklist}}</td><td>{{note}}</td></tr>
             {{/rows}}
@@ -44,7 +44,7 @@
     </script>
 
     <script id="theNumberofSpots" type="text/html">
-        <p><strong><span class="red-text">{{numberOfSpots}}</span> elementi</p>
+        <p><strong><span class="red-text">{{numberOfSpots}}</span> elementi archiviati.</p>
     </script>
 
     <script type="text/javascript">
@@ -76,6 +76,10 @@
                 $('.spotRow').first().click()
             }
         }
+
+        $('.clear').click(function() {
+            window.location = "/hack-spots/";
+        })
 
         $(document).on('keyup', '#tableFilter', function() {
             window.location.hash = $(this).val()

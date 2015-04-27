@@ -3,19 +3,83 @@ body {
   background-image: url('//ssl.gstatic.com/docs/forms/themes/images/v1/0AX42CRMsmRFbUy03NTAzM2Q4My03ODU1LTQ2NzItODI2YS1kZmU5YzdiMzZjOGQ/blue-stripe-bg.png');
   background-repeat: repeat;
   background-position: left top;
+  font-family: "Roboto";
+  color: rgb(119,119,119);
+  font-weight: 400;
+  font-size: 1.080rem;
+  font-style: normal;
+}
+a, a:link, a:visited {
+  color: rgb(79, 138, 227);
+}
+a:hover {
+  text-decoration: none;
+}
+input {
+  border: 1px solid #bbb;
+  padding: 0.4em 0.6em;
+}
+.button {
+  height: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+.noMatches {
+  display: none;
+}
+table {
+  width: 100%;
+}
+td, th {
+  color: black;
+  font-weight: 100;
+  font-size: .8rem;
+}
+th {
+  padding: 10px 0px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: left;
+  color: #FF4646;
+}
+th::after {
+  content: " \2193 \2191 ";
+  font-size: 10px;
+  padding-left: 3px;
+}
+ul {
+  margin-bottom: 50px;
+}
+ul li {
+  font-family: "Roboto";
+  color: rgb(80,80,80);
+  font-weight: 100;
+  font-size: 1.080rem;
+  font-style: normal;
+  margin-top: 10px;
+}
+#hackSpotsTable {
+  margin-top: 50px;
 }
 .container {
   border-radius: 2px;
   background-color: rgb(255,255,255);
+  border: 1px solid #ccc;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   box-sizing: border-box;
   margin: 0.75rem auto;
   padding: 0;
-  max-width: 700px;
+  max-width: 90%;
   min-width: 280px;
   width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
 }
 h1 {
+  margin: 0 0 .5rem;
   font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
