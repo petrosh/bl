@@ -34,11 +34,10 @@
                 <div id="latestSpot"></div>
                 <div id="selectedSpot"></div>
             </div>
-            <div id="map"></div>
         </div>
         <div class="container">
             <input id="tableFilter" type="text" placeholder="filter by.."></input>
-            <span class="clear button">Clear</span> <span class="resetMap button">Reset Map</span>
+            <span class="clear button">Clear</span>
             <span class="noMatches">no matches</span>
             <div id="hackSpotsTable"></div>
         </div>
@@ -61,7 +60,7 @@
         <table>
             <tr><th class="tHeader">Informazioni cronologiche</th><th class="tHeader">Indirizzo e-mail da inserire in blacklist</th><th class="tHeader">Note</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td>{{Informazionicronologiche}}</td><td>{{Indirizzoe-maildainserireinblacklist}}</td><td>{{Note}}</td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td>{{informazionicronologiche}}</td><td>{{indirizzoe-maildainserireinblacklist}}</td><td>{{note}}</td></tr>
             {{/rows}}
         </table>
     </script>
@@ -177,21 +176,11 @@
                 var latestCompleteSpot = []
                 var startWithLatestRow = data.reverse()
                 startWithLatestRow.forEach(function(row){
-                    if (!row.lat || !row.long || !row.name || !row.address || !row.city || !row.state ) return
+                    if (!row.indirizzoe-maildainserireinblacklist || !row.informazionicronologiche || !row.note ) return
                     else latestCompleteSpot.push(row)
                 })
                 return latestCompleteSpot[0]
-            }
-
-
-
-            // reset the map, zoom out, and recenter on 0,0
-            $('.resetMap').click(function() {
-                $('.spotRow').removeClass("selectedRow")
-                $('#latestSpot').css("display", "inline")
-                $('#selectedSpot').css("display", "none")
-                map.setView([0,0], 1)
-            })
+            }res
 
             // find total number of spots added
             var theNumberofSpots = Sheetsee.ich.theNumberofSpots({
