@@ -182,26 +182,7 @@
                 return latestCompleteSpot[0]
             }
 
-            // Add click listener to the markerLayer
-            markerLayer.on('click', function(e) {
-                // clear any selected rows
-                $('.spotRow').removeClass("selectedRow")
-                // get row number of selected marker
-                var rowNumber = e.layer.feature.opts.rowNumber
-                // find that row in the table and make consider it selected
-                $('#' + rowNumber).addClass("selectedRow")
-                // using row number, get the data for the selected spot
-                var dataElement = Sheetsee.getMatches(gData, rowNumber.toString(), "rowNumber")
-                // take those details and re-write the selected spot section
-                var selectedSpot = Sheetsee.ich.selectedSpot({
-                    rows: dataElement
-                })
-                // center the map on the selected element
-                map.panTo([dataElement[0].lat, dataElement[0].long])
-                // update the spot listing
-                $('#latestSpot').css("display", "none")
-                $('#selectedSpot').html(selectedSpot).css("display", "inline")
-            })
+
 
             // reset the map, zoom out, and recenter on 0,0
             $('.resetMap').click(function() {
